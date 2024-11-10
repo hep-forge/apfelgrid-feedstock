@@ -1,0 +1,49 @@
+{% set versions = {
+    "1.0.1" : "67c580af6d0fa45a9a1bc6674725a3c534474f5eae650903931bca688bf0edc4"
+} %}
+
+{% set version = environ.get('COMMIT_VERSION', None) %}
+{% set version = version or versions.keys()|first %}
+{% set version = version|string %}
+
+package:
+  name: {{ environ.get('ANACONDA_PACKAGE', "apfelgrid")|string|lower }}
+  version: {{ environ.get('ANACONDA_VERSION', version)|replace('/', '.')|replace('-', '.') }}
+
+source:
+  url: "https://github.com/nhartland/APFELgrid/archive/refs/tags/v{{ version }}.tar.gz"
+  {% if versions.get(version, None) %}
+  sha256: {{ versions.get(version) }}
+  {% endif %}
+
+requirements:
+  build:
+    - {{ compiler('gfortran') }}   # GNU Fortran compiler
+    - {{ compiler('c') }}          # GNU C compiler
+    - {{ compiler('cxx') }}        # GNU C++ compiler
+    
+    - cmake                        # Build system
+    - make                         # Make utility
+
+  host:
+    - apfel>=2.7.1
+    - lhapdf>=6
+    - applgrid>=1.4.70
+
+  run:
+    - apfel>=2.7.1
+    - lhapdf>=6
+    - applgrid>=1.4.70
+
+about:
+  home: "http://nhartland.github.io/APFELgrid/"
+  license: "MIT"
+  summary: "Ultra-fast theory predictions for collider observables"
+  description: |
+        The APFELgrid plugin is a tool designed to accelerate the computation of physical observables at hadron colliders, 
+        by means of combining the interpolated weight-grids provided by the APPLgrid project with the evolution of parton densities provided by APFEL.
+        The tool is aimed at PDF fitting groups, as it allows for the extremely rapid recalculation of cross-sections when varying the input PDF.
+
+extra:
+  recipe-maintainers:
+    - meiyasan
