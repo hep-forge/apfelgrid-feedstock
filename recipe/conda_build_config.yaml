@@ -1,10 +1,8 @@
 python:
   - 3.10.* *_cpython
-  - 3.12.* *_cpython
 
 root:
   - 6.32
-  - 6.34
 
 zip_keys:
   - python
