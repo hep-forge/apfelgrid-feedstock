@@ -1,5 +1,7 @@
 python:
   - 3.10.* *_cpython
+  - 3.10.* *_cpython
+  - 3.10.* *_cpython
 
 root:
   - 6.32
