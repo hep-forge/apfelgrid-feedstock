@@ -5,10 +5,11 @@
 {% set version = environ.get('COMMIT_VERSION', None) %}
 {% set version = version or versions.keys()|first %}
 {% set version = version|string %}
+{% set root_tag = (root or '')|replace('.', '') %}
 
 build:
   number: 0
-  string: "root{{ root.replace('.', '') }}"
+  string: "root{{ root_tag }}"
   
 package:
   name: {{ environ.get('ANACONDA_PACKAGE', "apfelgrid")|string|lower }}
@@ -29,12 +30,12 @@ requirements:
   host:
     - apfel>=2.7.1
     - lhapdf>5
-    - applgrid>=1.4.70 root{{ root.replace('.', '') }}
+    - applgrid>=1.4.70 root{{ root_tag }}
 
   run:
     - apfel>=2.7.1
     - lhapdf>5
-    - applgrid>=1.4.70 root{{ root.replace('.', '') }}
+    - applgrid>=1.4.70 root{{ root_tag }}
 
 about:
   home: "http://nhartland.github.io/APFELgrid/"
