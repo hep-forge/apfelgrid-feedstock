@@ -26,6 +26,9 @@ requirements:
     - root {{ root }}.*
     - cmake                        # Build system
     - make                         # Make utility
+    - autoconf
+    - automake
+    - gnuconfig
 
   host:
     - apfel>=2.7.1
