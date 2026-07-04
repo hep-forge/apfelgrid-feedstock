@@ -28,6 +28,7 @@ requirements:
     - make                         # Make utility
     - autoconf
     - automake
+    - libtool                      # autoreconf needs libtoolize for configure.ac's LT_INIT
     - gnuconfig
 
   host:
