@@ -16,7 +16,7 @@ Ultra-fast theory predictions for collider observables
 | Architecture | Latest published |
 |--------------|------------------|
 | linux-amd64 (`linux-64`) | ✅ `1.0.1` |
-| linux-arm64 (`linux-aarch64`) | ❌ not published |
+| linux-arm64 (`linux-aarch64`) | ✅ `1.0.1` |
 
 _As of the last feedstock render; the badges above are live._
 
