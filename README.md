@@ -13,7 +13,12 @@ Ultra-fast theory predictions for collider observables
 
 ## Architectures
 
-State per architecture: see the platforms badge above or [anaconda.org/hep-forge/apfelgrid](https://anaconda.org/hep-forge/apfelgrid).
+| Architecture | Latest published |
+|--------------|------------------|
+| linux-amd64 (`linux-64`) | ✅ `1.0.1` |
+| linux-arm64 (`linux-aarch64`) | ✅ `1.0.1` |
+
+_As of the last feedstock render; the badges above are live._
 
 
 ## Install
